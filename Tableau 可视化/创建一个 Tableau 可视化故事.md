@@ -17,18 +17,17 @@
 
 最终提交的数据集应：
 
-- 以整齐的形式1 呈现（你可能需要清洗并重塑数据）
-- 以常用的dimple.js或d3.js加载数据的格式提交，如.csv，.tsv，.txt，.json，.xml或.html
+- 以整齐的形式 $^1$ 呈现（你可能需要清洗并重塑数据）
+- 以常用加载数据的格式提交，如 `.csv`，`.tsv`，`.txt`，`.json`，`.xml` 或 `.html`
 
 一些可供选择的数据集资源如下：
 
-- [http://www.pewglobal.org/category/datasets/](https://www.google.com/url?q=http://www.pewglobal.org/category/datasets/&sa=D&ust=1508128508030000&usg=AFQjCNGhS7M9Ci66oNlE3utTL7b0QDSJZw)
-- [http://databank.worldbank.org/data/home.aspx](https://www.google.com/url?q=http://databank.worldbank.org/data/home.aspx&sa=D&ust=1508128508031000&usg=AFQjCNGjA4Tn9xdU5YO8Q2n3JZPdS8FskQ)
-- [http://www.data.gov/](https://www.google.com/url?q=http://www.data.gov/&sa=D&ust=1508128508031000&usg=AFQjCNG1OSZNRP6W-_HouwaY6ME9-rB5-Q)
-- [http://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public](https://www.google.com/url?q=http://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public&sa=D&ust=1508128508032000&usg=AFQjCNHbNEjneT_GYOuapWMTVpL0sInf1g)
-- [http://www.inside-r.org/howto/finding-data-internet](https://www.google.com/url?q=http://www.inside-r.org/howto/finding-data-internet&sa=D&ust=1508128508032000&usg=AFQjCNFS2-zP216yV5LHW97IHy7Al44_zw)
-- [https://www.edsurge.com/n/2014-01-21-education-datapalooza](https://www.google.com/url?q=https://www.edsurge.com/n/2014-01-21-education-datapalooza&sa=D&ust=1508128508033000&usg=AFQjCNEcTMvcYXjXVaBZ70W-VsUF4PAlSg)
-- [1,001 Data Sets](https://www.google.com/url?q=https://dreamtolearn.com/doc/2HDNJH3XJU6CVGKZ7SDM4MCSW&sa=D&ust=1508128508033000&usg=AFQjCNHmFw2CSTLBDhX39DMtZDPCIHprLQ)
+- http://www.pewglobal.org/datasets/
+- http://databank.worldbank.org/data/home.aspx
+- http://www.data.gov/
+- http://www.quora.com/Where-can-I-find-large-datasets-open-to-the-public
+- https://www.edsurge.com/news/2014-01-21-education-datapalooza
+- [1,001 Data Sets](https://dreamtolearn.com/ryan/1001_datasets)
+- 知乎的文章，如：https://zhuanlan.zhihu.com/p/25138563
 
-1 整齐的数据集是指以特定结构排列的数据集。阅读HadleyWickham 的论文以了解更多：[http://vita.had.co.nz/papers/tidy-data.pdf](https://www.google.com/url?q=http://vita.had.co.nz/papers/tidy-data.pdf&sa=D&ust=1508128508034000&usg=AFQjCNE2Hw3Owpdr50Vy2b-NhxDIFyV8fQ)
-
+$^1$ 整齐的数据集是指以特定结构排列的数据集。阅读HadleyWickham 的论文以了解更多：http://vita.had.co.nz/papers/tidy-data.pdf
