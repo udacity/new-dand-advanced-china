@@ -1,0 +1,286 @@
+第 6 课
+========================================================
+
+### 欢迎语
+注释：
+
+***
+
+### 散点图回顾
+
+```{r Scatterplot Review}
+
+```
+
+***
+
+### 价格与克拉的关系
+回复：
+
+***
+
+### Frances Gerety
+注释：
+
+#### 钻石是
+
+***
+
+### 钻石的兴起
+注释：
+
+***
+
+### ggpairs 函数
+注释：
+
+```{r ggpairs Function}
+# 如有需要，安装下列组件
+install.packages('GGally')
+install.packages('scales')
+install.packages('memisc')
+install.packages('lattice')
+install.packages('MASS')
+install.packages('car')
+install.packages('reshape')
+install.packages('plyr')
+
+# 加载 ggplot 图画组件及其他内容
+library(ggplot2)
+library(GGally)
+library(scales)
+library(memisc)
+
+# 数据集中 10,000 个钻石的样本
+set.seed(20022012)
+diamond_samp <- diamonds[sample(1:length(diamonds$price), 10000), ]
+ggpairs(diamond_samp, params = c(shape = I('.'), outlier.shape = I('.')))
+```
+
+在 ggpairs 输出中你发现了什么？
+回复：
+
+***
+
+### 钻石的需求
+注释：
+
+```{r The Demand of Diamonds}
+
+```
+
+***
+
+### 结合需求和价格的分布
+注释：
+
+***
+
+### 改变散点图
+
+```{r Scatterplot Transformation}
+
+```
+
+
+### 创建一个新函数，改变变量 carat
+
+```{r cuberoot transformation}
+cuberoot_trans = function() trans_new('cuberoot', transform = function(x) x^(1/3),
+                                      inverse = function(x) x^3)
+```
+
+#### 使用函数 cuberoot_trans
+```{r Use cuberoot_trans}
+ggplot(aes(carat, price), data = diamonds) + 
+  geom_point() + 
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3),
+                     breaks = c(0.2, 0.5, 1, 2, 3)) + 
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000),
+                     breaks = c(350, 1000, 5000, 10000, 15000)) +
+  ggtitle('Price (log10) by Cube-Root of Carat')
+```
+
+***
+
+### 再次访问过度绘制
+
+```{r Sort and Head Tables}
+
+```
+
+
+```{r Overplotting Revisited}
+ggplot(aes(carat, price), data = diamonds) + 
+  geom_point() + 
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3),
+                     breaks = c(0.2, 0.5, 1, 2, 3)) + 
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000),
+                     breaks = c(350, 1000, 5000, 10000, 15000)) +
+  ggtitle('Price (log10) by Cube-Root of Carat')
+```
+
+***
+
+### 其他定性因素
+注释：
+
+***
+
+### 价格 vs. 克拉与净度
+
+改变下列代码。
+```{r Price vs. Carat and Clarity}
+# 安装并加载 RColorBrewer 组件
+install.packages('RColorBrewer')
+library(RColorBrewer)
+
+ggplot(aes(x = carat, y = price), data = diamonds) + 
+  geom_point(alpha = 0.5, size = 1, position = 'jitter') +
+  scale_color_brewer(type = 'div',
+    guide = guide_legend(title = 'Clarity', reverse = T,
+    override.aes = list(alpha = 1, size = 2))) +  
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3),
+    breaks = c(0.2, 0.5, 1, 2, 3)) + 
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000),
+    breaks = c(350, 1000, 5000, 10000, 15000)) +
+  ggtitle('Price (log10) by Cube-Root of Carat and Clarity')
+```
+
+***
+
+### 净度与价格
+回复：
+
+***
+
+### 价格 vs. 克拉与切工
+
+改变下列代码。
+```{r Price vs. Carat and Cut}
+ggplot(aes(x = carat, y = price, color = clarity), data = diamonds) + 
+  geom_point(alpha = 0.5, size = 1, position = 'jitter') +
+  scale_color_brewer(type = 'div',
+                     guide = guide_legend(title = 'Clarity', reverse = T,
+                                          override.aes = list(alpha = 1, size = 2))) +  
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3),
+                     breaks = c(0.2, 0.5, 1, 2, 3)) + 
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000),
+                     breaks = c(350, 1000, 5000, 10000, 15000)) +
+  ggtitle('Price (log10) by Cube-Root of Carat and Clarity')
+```
+
+***
+
+### 切工与价格
+回复：
+
+***
+
+### 价格 vs. 克拉与颜色
+
+改变下列代码。
+```{r Price vs. Carat and Color}
+ggplot(aes(x = carat, y = price, color = cut), data = diamonds) + 
+  geom_point(alpha = 0.5, size = 1, position = 'jitter') +
+  scale_color_brewer(type = 'div',
+                     guide = guide_legend(title = Cut, reverse = T,
+                                          override.aes = list(alpha = 1, size = 2))) +  
+  scale_x_continuous(trans = cuberoot_trans(), limits = c(0.2, 3),
+                     breaks = c(0.2, 0.5, 1, 2, 3)) + 
+  scale_y_continuous(trans = log10_trans(), limits = c(350, 15000),
+                     breaks = c(350, 1000, 5000, 10000, 15000)) +
+  ggtitle('Price (log10) by Cube-Root of Carat and Cut')
+```
+
+***
+
+### 颜色与价格
+回复：
+
+***
+
+### R 中的线性模型
+注释：
+
+回复：
+
+***
+
+### 构建线性模型
+Notes:
+
+```{r Building the Linear Model}
+m1 <- lm(I(log(price)) ~ I(carat^(1/3)), data = diamonds)
+m2 <- update(m1, ~ . + carat)
+m3 <- update(m2, ~ . + cut)
+m4 <- update(m3, ~ . + color)
+m5 <- update(m4, ~ . + clarity)
+mtable(m1, m2, m3, m4, m5)
+```
+
+注意，把切工增加到我们模型中，为什么不利于解释钻石价格的方差。
+之前没有探讨过这个问题。
+
+***
+
+### 模型中的问题
+视频注释：
+
+Research:
+(花时间解决模型的 2-4 个问题)
+(应该花费 10 到 20 分钟完成)
+
+回复：
+
+***
+
+### 更大更优的数据集
+Notes:
+
+```{r A Bigger, Better Data Set}
+install.package('bitops')
+install.packages('RCurl')
+library('bitops')
+library('RCurl')
+
+diamondsurl = getBinaryURL("https://raw.github.com/solomonm/diamonds-data/master/BigDiamonds.Rda")
+load(rawConnection(diamondsurl))
+```
+
+这里可以获取得到数据所使用的代码：
+https://github.com/solomonm/diamonds-data
+
+## 使用更大的钻石数据集构建模型
+Notes:
+
+```{r Building a Model Using the Big Diamonds Data Set}
+
+```
+
+***
+
+## 预测
+
+BlueNile 钻石例子：
+直径为 1.00 等级很好 I VS I 的钻石价格是 $5,601
+
+```{r}
+# 确保你已经加载了 memisc 库，保存为 m5 作为工作区的对象。
+thisDiamond = data.frame(carat = 1.00, cut = "V.Good",
+                         color = "I", clarity="VS1")
+modelEstimate = predict(m5, newdata = thisDiamond,
+                        interval="prediction", level = .95)
+```
+
+评估模型如何较好地预测 BlueNile 钻石价格。思考最佳点估计和 95% 的置信区间。
+
+***
+
+## 最终思考
+注释：
+
+***
+
+点击 **KnitHTML** 查看你的成果和这节课的 html 页面、
+答案和注释！

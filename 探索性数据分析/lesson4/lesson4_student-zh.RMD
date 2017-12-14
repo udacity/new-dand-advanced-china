@@ -1,0 +1,267 @@
+第 4 课
+========================================================
+
+***
+
+### 散点图和自我感知的关注量
+注释：
+
+***
+
+### 散点图
+注释：
+
+```{r Scatterplots}
+
+```
+
+***
+
+#### 你现在注意到什么？
+回复：
+
+***
+
+### ggplot 语法
+注释：
+
+```{r ggplot Syntax}
+
+```
+
+***
+
+### 过度绘制
+注释：
+
+```{r Overplotting}
+
+```
+
+#### 你在这个绘图中注意到了什么？
+回复：
+
+***
+
+### Coord_trans()
+注释：
+
+```{r Coord_trans()}
+
+```
+
+#### 查阅 coord_trans() 的文档，在绘图中增加一层，使用平方根函数改变 friend_count。创建你的绘图！
+
+```{r}
+
+```
+
+#### 你发现了什么？
+
+***
+
+### Alpha 和抖动
+注释：
+
+```{r Alpha and Jitter}
+
+```
+
+***
+
+### 过度绘制和领域知识
+注释：
+
+***
+
+### 条件平均数
+注释：
+
+```{r Conditional Means}
+
+```
+
+创建你的绘图！
+
+```{r Conditional Means Plot}
+
+```
+
+***
+
+### 将摘要与原始数据叠加
+注释：
+
+```{r Overlaying Summaries with Raw Data}
+
+```
+
+#### 你在这个绘图中发现了什么？
+回复：
+
+***
+
+### Moira：直方图总结与散点图
+查看这个视频中的 Instructor Notes，下载 Moira's 关于感知关注量的论文，观察最终绘图。
+
+注释：
+
+***
+
+### 相关性
+注释：
+
+```{r Correlation}
+
+```
+
+查看函数 cor.test 的文档。
+
+年龄和朋友数量的相关性是什么？四舍五入到小数点后三位。
+回复：
+
+***
+
+### 数据集的相关性
+注释：
+
+```{r Correlation on Subsets}
+with(                 , cor.test(age, friend_count))
+```
+
+***
+
+### 相关性方法
+注释：
+
+***
+
+## 创建散点图
+注释：
+
+```{r}
+
+```
+
+***
+
+### 强相关
+注释：
+
+```{r Strong Correlations}
+
+```
+
+两个变量之间的相关性是什么？计算时包含变量的前 5% 数值，四舍五入到小数点后三位。
+
+```{r Correlation Calcuation}
+
+```
+
+回复：
+
+***
+
+### Moira 的相关性
+注释：
+
+***
+
+### 相关性的更多注意事项
+注释：
+
+```{r More Caution With Correlation}
+install.packages('alr3')
+library(alr3)
+```
+
+创建你的绘图！
+
+```{r Temp vs Month}
+
+```
+
+***
+
+### 噪音散点图
+a. 猜猜散点图的相关系数。
+
+b. 两个变量的实际相关性是什么？
+(四舍五入到千分位)
+
+```{r Noisy Scatterplots}
+
+```
+
+***
+
+### 理解数据
+注释：
+
+```{r Making Sense of Data}
+
+```
+
+***
+
+### 新视角
+
+你发现了什么？
+回复：
+
+观看解答视频，核对 Instructor Notes！
+注释：
+
+***
+
+### 理解噪音：年龄到含有月份的年龄
+注释：
+
+```{r Understanding Noise: Age to Age Months}
+
+```
+
+***
+
+### 含有月份平均数的年龄
+
+```{r Age with Months Means}
+
+```
+
+编程任务
+```{r Programming Assignment}
+
+```
+
+***
+
+### 条件平均数的噪音
+
+```{r Noise in Conditional Means}
+
+```
+
+***
+
+### 使条件平均数更加流畅
+注释：
+
+```{r Smoothing Conditional Means}
+
+```
+
+***
+
+### 选择哪个绘图？
+注释：
+
+***
+
+### 分析两个变量
+思考：
+
+***
+
+点击 **KnitHTML** 查看你的成果和这节课的 html 页面、
+答案和注释！

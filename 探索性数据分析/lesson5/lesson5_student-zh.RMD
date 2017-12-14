@@ -1,0 +1,250 @@
+第 5 课
+========================================================
+
+### 多变量数据
+注释：
+
+***
+
+### 年龄标记为彩色的自我感知关注量
+注释：
+
+***
+
+### 第三个定性变量
+注释：
+
+```{r Third Qualitative Variable}
+ggplot(aes(x = gender, y = age),
+       data = subset(pf, !is.na(gender))) + geom_histogram()
+```
+
+***
+
+### 绘制条件总结
+注释：
+
+```{r Plotting Conditional Summaries}
+
+```
+
+***
+
+### 思考比率
+注释：
+
+***
+
+### 又宽又长的格式
+注释：
+
+***
+
+### 改变数据
+注释：
+
+```{r}
+install.packages('reshape2')
+library(reshape2)
+```
+
+***
+
+### 比率图
+注释：
+
+```{r Ratio Plot}
+
+```
+
+***
+
+### 第三个定性变量
+注释：
+
+```{r Third Quantitative Variable}
+
+```
+
+***
+
+### 减少一个变量
+注释：
+
+```{r Cut a Variable}
+
+```
+
+***
+
+### 同时绘制
+注释：
+
+```{r Plotting it All Together}
+
+```
+
+***
+
+### 绘制总平均值
+注释：
+
+```{r Plot the Grand Mean}
+
+```
+
+***
+
+### 交友率
+注释：
+
+```{r Friending Rate}
+
+```
+
+***
+
+### 开始交友
+注释：
+
+平均交友率是什么？
+
+最大交友率是什么？
+
+```{r Friendships Initiated}
+
+```
+
+***
+
+### 再次访问方差权衡
+注释：
+
+```{r Bias-Variance Tradeoff Revisited}
+
+ggplot(aes(x = tenure, y = friendships_initiated / tenure),
+       data = subset(pf, tenure >= 1)) +
+  geom_line(aes(color = year_joined.bucket),
+            stat = 'summary',
+            fun.y = mean)
+
+ggplot(aes(x = 7 * round(tenure / 7), y = friendships_initiated / tenure),
+       data = subset(pf, tenure > 0)) +
+  geom_line(aes(color = year_joined.bucket),
+            stat = "summary",
+            fun.y = mean)
+
+ggplot(aes(x = 30 * round(tenure / 30), y = friendships_initiated / tenure),
+       data = subset(pf, tenure > 0)) +
+  geom_line(aes(color = year_joined.bucket),
+            stat = "summary",
+            fun.y = mean)
+
+ggplot(aes(x = 90 * round(tenure / 90), y = friendships_initiated / tenure),
+       data = subset(pf, tenure > 0)) +
+  geom_line(aes(color = year_joined.bucket),
+            stat = "summary",
+            fun.y = mean)
+
+```
+
+***
+
+### Sean 对 NFL 粉丝情绪的研究
+注释：
+
+***
+
+###  Yogurt 数据集简介
+注释：
+
+***
+
+### 再次访问直方图
+注释：
+
+```{r Histograms Revisited}
+
+```
+
+***
+
+### 购买数量
+注释：
+
+```{r Number of Purchases}
+
+```
+
+***
+
+### 一段时期的价格
+注释：
+
+```{r Prices over Time}
+
+```
+
+***
+
+### 抽样观察
+注释：
+
+***
+
+### 观察家庭的样本
+
+```{r Looking at Sample of Households}
+
+```
+
+***
+
+### 交叉分组数据的缺点
+注释：
+
+***
+
+### 许多变量
+注释：
+
+***
+
+### 散点图矩阵
+注释：
+
+***
+
+### 更多变量
+注释：
+
+***
+
+### 热点图
+注释：
+
+```{r}
+nci <- read.table("nci.tsv")
+colnames(nci) <- c(1:64)
+```
+
+```{r}
+nci.long.samp <- melt(as.matrix(nci[1:200,]))
+names(nci.long.samp) <- c("gene", "case", "value")
+head(nci.long.samp)
+
+ggplot(aes(y = gene, x = case, fill = value),
+  data = nci.long.samp) +
+  geom_tile() +
+  scale_fill_gradientn(colours = colorRampPalette(c("blue", "red"))(100))
+```
+
+***
+
+### 分析三个及三个以上变量
+思考：
+
+***
+
+点击 **KnitHTML** 查看你的成果和这节课的 html 页面、
+答案和注释！
